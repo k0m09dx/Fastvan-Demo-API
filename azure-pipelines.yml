@@ -17,7 +17,7 @@ variables:
 
 steps:
 - task: Maven@3
-  displayName: build ${{ parameters.moduleName }} uberJar
+  displayName: build FastVan uberJar
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
