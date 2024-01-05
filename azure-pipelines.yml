@@ -9,13 +9,14 @@ trigger:
 pool:
   name: Default
 
-container: maven:3.8.1-openjdk-17-slim
-variables:
-  - name: JAVA_HOME_11_X64
-    value: /usr/local/openjdk-17
-
 
 steps:
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '17'
+    jdkArchitectureOption: 'x64'
+    jdkSourceOption: 'PreInstalled'
+
 - task: Maven@3
   displayName: build FastVan uberJar
   inputs:
