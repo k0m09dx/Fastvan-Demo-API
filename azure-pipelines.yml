@@ -37,3 +37,14 @@ steps:
     repository: 'fastvandemoapi'
     command: 'push'
     tags: 'latest'
+- task: CopyFiles@2
+  displayName: Copy Files
+  inputs:
+    Contents: 'aks-deploy-from-acr.yaml'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+- task: PublishBuildArtifacts@1
+  displayName: Publish Artifact:drop
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
