@@ -7,13 +7,8 @@ trigger:
 - main
 
 pool:
-  name: Azure Pipelines
-  vmImage: ubuntu-latest
+  name: Fastvan
 
-container: maven:3.8.1-openjdk-17-slim
-variables:
-  - name: JAVA_HOME_11_X64
-    value: /usr/local/openjdk-17
 
 
 steps:
@@ -22,8 +17,7 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
-    javaHomeSelection: 'path'
-    jdkDirectory: '/usr/local/openjdk-17'
+    javaHomeOption: 'JDKVersion'
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
