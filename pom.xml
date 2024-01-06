@@ -47,7 +47,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <image>
-                        <name>fastvan.azurecr.io/${project.artifactId}</name>
+                        <name>fastvan.azurecr.io/fastvandemoapi</name>
                     </image>
                     <layers>
                         <enabled>true</enabled>
