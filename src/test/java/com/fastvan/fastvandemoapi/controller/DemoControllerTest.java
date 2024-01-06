@@ -18,7 +18,7 @@ public class DemoControllerTest {
 
     @Test
     public void shouldReturnHelloWorld() throws Exception {
-        this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
+        this.mockMvc.perform(get("/hello")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().string("Hello World i'm build in Azure Pipelines!"));
     }
 }
