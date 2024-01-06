@@ -10,7 +10,6 @@ pool:
   name: Fastvan
 
 
-
 steps:
 - task: Maven@3
   displayName: build FastVan uberJar
