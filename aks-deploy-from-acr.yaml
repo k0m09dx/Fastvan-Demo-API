@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: fastvan-demoapi-app
-          image: fastvan.azurecr.io/fastvandemoapi:#{Build.BuildId}#
+          image: fastvan.azurecr.io/fastvandemoapi:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8085
