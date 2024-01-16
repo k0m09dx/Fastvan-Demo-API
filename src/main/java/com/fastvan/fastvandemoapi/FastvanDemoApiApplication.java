@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.Serial;
 
-@OpenAPIDefinition(servers= { @Server(url = "/", description = "Default Server Pages")})
+@OpenAPIDefinition(servers= { @Server(url = "/common", description = "Default Server Pages")})
 @SpringBootApplication(scanBasePackages = "com.fastvan.fastvandemoapi")
 public class FastvanDemoApiApplication {
 
