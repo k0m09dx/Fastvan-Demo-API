@@ -1,38 +1,22 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fastvan-demoapi-deployment
+  namespace: godash-common
+  name: deployment-springboot-app
 spec:
-  replicas: 3
   selector:
     matchLabels:
-      app: fastvanapi-app
+      app.kubernetes.io/name: springboot-app
+  replicas: 2
   template:
     metadata:
       labels:
-        app: fastvanapi-app
+        app.kubernetes.io/name: springboot-app
     spec:
       containers:
-        - name: fastvan-demoapi-app
-          image: fastvan.azurecr.io/fastvandemoapi:#{Build.BuildId}#
+        - image: 571109166839.dkr.ecr.us-east-1.amazonaws.com/godash:springboot-app_49
           imagePullPolicy: Always
+          name: springboot-app
           ports:
-            - containerPort: 8085
-# service type loadbalancer       
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: fastvanapi-app
-    k8s-app: fastvanapi-app
-  name: fastvanapi-app
-spec:
-  ports:
-    - name: http
-      port: 80
-      protocol: TCP
-      targetPort: 8085
-  type: LoadBalancer
-  selector:
-    app: fastvanapi-app
+            - containerPort: 8080
