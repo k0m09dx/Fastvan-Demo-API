@@ -12,6 +12,7 @@ import java.io.Serial;
 public class FastvanDemoApiApplication {
 
     public static void main(String[] args) {
+        System.setProperty("server.servlet.context-path", "/common");
         SpringApplication.run(FastvanDemoApiApplication.class, args);
     }
 
