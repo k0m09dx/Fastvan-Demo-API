@@ -15,7 +15,7 @@ spec:
         app.kubernetes.io/name: springboot-app
     spec:
       containers:
-        - image: 571109166839.dkr.ecr.us-east-1.amazonaws.com/godash:springboot-app_49
+        - image: 571109166839.dkr.ecr.us-east-1.amazonaws.com/godash:springboot-app_#{Build.BuildId}#
           imagePullPolicy: Always
           name: springboot-app
           ports:
