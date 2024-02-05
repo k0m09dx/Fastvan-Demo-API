@@ -2,6 +2,7 @@ package com.fastvan.fastvandemoapi.controller;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fastvan.fastvandemoapi.service.CacheService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,14 +13,15 @@ import java.util.Map;
 @RestController
 public class DemoController {
 
-    private static Jedis jedis = new Jedis("godash-dev-ntnzjs.serverless.usw1.cache.amazonaws.com", 6379,true);
+    private final CacheService cacheService;
 
-    public DemoController(){
+    public DemoController(CacheService cacheService){
+        this.cacheService = cacheService;
     }
     @GetMapping(path = "cache/{id}")
     public String getCacheData(@PathVariable("id") String id){
         try {
-            return (String) jedis.get(id);
+            return (String) cacheService.get(id);
         }catch (Exception ex){
             throw new RuntimeException(ex);
         }
@@ -30,7 +32,7 @@ public class DemoController {
         try {
             ObjectMapper mapper = new ObjectMapper();
             String result = mapper.writeValueAsString(data);
-            jedis.set(id, result);
+            cacheService.put(id, result);
             return new ResponseEntity<>("Data Uploaded successfully", HttpStatus.OK);
         }catch (Exception ex){
             throw new RuntimeException(ex);
