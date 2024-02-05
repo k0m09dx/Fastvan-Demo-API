@@ -12,7 +12,7 @@ import java.util.Map;
 @RestController
 public class DemoController {
 
-    private static Jedis jedis = new Jedis("godash-dev-ntnzjs.serverless.usw1.cache.amazonaws.com", 6379);
+    private static Jedis jedis = new Jedis("godash-dev-ntnzjs.serverless.usw1.cache.amazonaws.com", 6379,true);
 
     public DemoController(){
     }
