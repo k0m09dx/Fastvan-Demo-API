@@ -3,21 +3,19 @@ package com.fastvan.fastvandemoapi.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fastvan.fastvandemoapi.service.CacheService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import redis.clients.jedis.Jedis;
 
 import java.util.Map;
 
 @RestController
+@RequiredArgsConstructor
 public class DemoController {
 
     private final CacheService cacheService;
 
-    public DemoController(CacheService cacheService){
-        this.cacheService = cacheService;
-    }
     @GetMapping(path = "cache/{id}")
     public String getCacheData(@PathVariable("id") String id){
         try {
@@ -40,8 +38,10 @@ public class DemoController {
     }
 
 
-    @GetMapping(path = "hello")
+    @GetMapping(path = "test")
     public String hello() {
         return "Good Morning. Hello World i'm build in Azure Pipelines!";
     }
+
+
 }
