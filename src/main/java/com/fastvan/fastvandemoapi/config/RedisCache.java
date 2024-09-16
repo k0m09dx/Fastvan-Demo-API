@@ -12,7 +12,7 @@ public class RedisCache {
         if (jedis != null){
             return jedis;
         }else {
-            jedis = new Jedis("localhost", 6379,false);
+            jedis = new Jedis("redis.godash-common-us.svc.cluster.local", 6379,false);
             return jedis;
         }
     }
