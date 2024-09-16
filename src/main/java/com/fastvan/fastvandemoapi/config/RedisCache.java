@@ -12,7 +12,7 @@ public class RedisCache {
         if (jedis != null){
             return jedis;
         }else {
-            jedis = new Jedis("godash-dev-ntnzjs.serverless.usw1.cache.amazonaws.com", 6379,true);
+            jedis = new Jedis("localhost", 6379,false);
             return jedis;
         }
     }
